@@ -2,8 +2,9 @@ import React, { useState, useEffect, useMemo } from 'react'
 import Selectable from './Selectable'
 import { useFetch } from '../../../utils/useFetch'
 import { usePokemonDataContext } from '../../../utils/PokemonDataContext'
+import { useLocalStorage } from '../../../utils/useLocalStorage'
 
-export default function PaginatedList() {
+export default function PaginatedList({ setIsRegistered }) {
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
   const [pokemonData, setPokemonData] = useState([]) // result array only for the API
   const { selectedPokemons } = usePokemonDataContext()
@@ -12,6 +13,8 @@ export default function PaginatedList() {
   useEffect(() => {
     useFetch(url).then((data) => setPokemonData(data.results))
   }, [])
+
+  // page details
 
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20
@@ -42,6 +45,12 @@ export default function PaginatedList() {
     setCurrentPage(currentPage - 1)
   }
 
+  // Will set the necessary details to local storage and go to path /profile
+  const handleClickDone = () => {
+    setIsRegistered(true)
+    useLocalStorage('set', 'userPokemonList', selectedPokemons)
+  }
+
   return (
     <>
       <div className='title'>Please Choose Your Starter Team!</div>
@@ -70,7 +79,9 @@ export default function PaginatedList() {
       </div>
       {selectedPokemons.list.length === 6 ? (
         <div className='pagination-count'>
-          <button className='input-name-btn'>Done</button>
+          <button className='input-name-btn' onClick={handleClickDone}>
+            Done
+          </button>
         </div>
       ) : (
         <div className='pagination-count'>
