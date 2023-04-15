@@ -1,0 +1,12 @@
+.selectable {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 130px;
+  height: 170px;
+  align-items: center;
+  background-color: #e3bc9a;
+  border-radius: 10px;
+  border: 0.5px solid black;
+  cursor: pointer;
+}
