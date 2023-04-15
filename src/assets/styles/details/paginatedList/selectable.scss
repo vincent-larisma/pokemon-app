@@ -1,3 +1,22 @@
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 40px;
+
+  .pokemon-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 50vw;
+    height: 60vh;
+    overflow-y: auto;
+    gap: 50px;
+  }
+}
+
 .selectable {
   display: flex;
   flex-direction: column;

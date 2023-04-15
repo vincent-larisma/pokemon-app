@@ -19,6 +19,10 @@ body {
   background-size: cover;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
+
 //util styles
 @import './utilStyles/fade.scss';
 

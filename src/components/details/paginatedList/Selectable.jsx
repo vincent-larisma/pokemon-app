@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function Selectable({ img, name, type, isSelected }) {
+export default function Selectable({ img, name, type, isSelected}) {
   const [selected, setSelected] = useState(false)
 
   return (

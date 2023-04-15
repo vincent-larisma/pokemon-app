@@ -4,7 +4,7 @@ import PaginatedList from './paginatedList/PaginatedList'
 
 export default function NameDetails({ setIsRegistered }) {
   const [name, setName] = useState('')
-  const [nextStep, setNextStep] = useState(false)
+  const [nextStep, setNextStep] = useState(true)
 
   const handleChangeName = (e) => {
     setName(e.target.value)
