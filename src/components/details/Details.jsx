@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 import NameDetails from './NameDetails'
 
-// custom hook
-import { useLocalStorage } from '../../utils/useLocalStorage'
 import CharacterDetails from './CharacterDetails'
 
 export default function Details() {
