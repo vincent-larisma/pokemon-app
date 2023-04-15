@@ -19,9 +19,11 @@ body {
   background-size: cover;
 }
 
+//util styles
+@import './utilStyles/fade.scss';
+
 // Navbar Style Componenet
 @import './navBar/navBar.scss';
 
 // Details Style Component
 @import './details/details.scss';
-@import './details/name.scss';
