@@ -1,3 +1,9 @@
 @import './selectable.scss';
-
 @import './list.scss';
+
+.paginated-button {
+  cursor: pointer;
+}
+.pagination-count {
+  margin-top: 20px;
+}

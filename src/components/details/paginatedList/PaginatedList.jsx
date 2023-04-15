@@ -1,22 +1,43 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import Selectable from './Selectable'
-import { getData } from '../../../utils/useFetch'
+import { useFetch } from '../../../utils/useFetch'
 
 export default function PaginatedList() {
-  const [url, setUrl] = useState('https://pokeapi.co/api/v2/pokemon')
-  const [urlDataResult, setUrlDataResult] = useState(null) //complete result of fetch
+  const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
   const [pokemonData, setPokemonData] = useState([]) // result array only for the API
   const [selectedPokemon, setSelectedPokemon] = useState([])
 
   useEffect(() => {
-    getData(url).then((data) => {
-      setUrlDataResult(data)
-      setPokemonData(data.results)
-    })
-  }, [url])
+    useFetch(url).then((data) => setPokemonData(data.results))
+  }, [])
+
+  const [currentPage, setCurrentPage] = useState(1)
+  const itemsPerPage = 20
+  const pageCount = Math.ceil(pokemonData.length / itemsPerPage)
+
+  const getPaginatedData = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage
+    const endIndex = startIndex + itemsPerPage
+
+    return pokemonData.slice(startIndex, endIndex)
+  }, [currentPage])
+
+  const handleSelect = (val) => {
+    setSelectedPokemon(val)
+  }
 
   const handleClickNext = () => {
-    setUrl(urlDataResult.next)
+    if (currentPage === pageCount) {
+      return
+    }
+    setCurrentPage(currentPage + 1)
+  }
+
+  const handleClickPrev = () => {
+    if (currentPage === 1) {
+      return
+    }
+    setCurrentPage(currentPage - 1)
   }
 
   return (
@@ -24,22 +45,34 @@ export default function PaginatedList() {
       <div className='title'>Please Choose Your Starter Team!</div>
       <div className='pagination-container'>
         <div>
-          <button>Prev</button>
+          <div className='paginated-button' onClick={handleClickPrev}>
+            <i className='fa-solid fa-chevron-left fa-2xl'></i>
+          </div>
         </div>
         <div className='pokemon-list'>
-          {pokemonData.length
-            ? pokemonData.map((value, index) => {
+          {getPaginatedData.length
+            ? getPaginatedData.map((value, index) => {
                 return (
                   <div key={index}>
-                    <Selectable name={value.name} url={value.url} />
+                    <Selectable
+                      name={value.name}
+                      url={value.url}
+                      isSelected={(val) => setSelectedPokemon(val)}
+                      selectedPokemon={selectedPokemon}
+                    />
                   </div>
                 )
               })
             : null}
         </div>
         <div>
-          <button onClick={handleClickNext}>Next</button>
+          <div className='paginated-button' onClick={handleClickNext}>
+            <i className='fa-solid fa-chevron-right fa-2xl'></i>
+          </div>
         </div>
+      </div>
+      <div className='pagination-count'>
+        Page {currentPage} of {pageCount}
       </div>
     </>
   )
