@@ -1,12 +1,19 @@
 .selectable {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   text-align: center;
   width: 130px;
-  height: 170px;
+  height: 200px;
   align-items: center;
   background-color: #e3bc9a;
   border-radius: 10px;
   border: 0.5px solid black;
   cursor: pointer;
+
+  .selectable-checkbox {
+    align-self: flex-end;
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useLocalStorage } from '../../utils/useLocalStorage'
-import PaginatedList from './PaginatedList'
+import PaginatedList from './paginatedList/PaginatedList'
 
 export default function NameDetails({ setIsRegistered }) {
   const [name, setName] = useState('')

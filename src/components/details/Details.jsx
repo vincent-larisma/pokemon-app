@@ -13,7 +13,7 @@ export default function Details() {
       <div className='details-wrapper'>
         {!isRegistered ? (
           <div className='details-container-name'>
-            <NameDetails setIsRegistered={(val) => setIsRegistered(val)} />{' '}
+            <NameDetails setIsRegistered={(val) => setIsRegistered(val)} />
           </div>
         ) : (
           <div className='details-container-layout'>
