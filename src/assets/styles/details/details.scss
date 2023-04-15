@@ -1,0 +1,25 @@
+.details-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed; /* or absolute */
+  top: 0;
+  left: 0;
+}
+
+.details-container {
+  border: rgb(0, 0, 0) 10px solid;
+  background: rgba(255, 255, 255, 0.41);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.9px);
+  border-radius: 10px;
+  width: 60vw;
+  height: 80vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

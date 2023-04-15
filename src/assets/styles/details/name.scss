@@ -1,0 +1,33 @@
+.title {
+  font-size: 2rem;
+}
+
+.input-name {
+  font-size: 1.5rem;
+  padding-bottom: 5px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background: none;
+  border: none;
+  border-bottom: 3px solid black;
+  border-radius: 2px;
+  text-align: center;
+  outline: none;
+}
+
+.input-name-btn {
+  background: none;
+  border: 2px solid black;
+  border-radius: 10px;
+  outline: none;
+  font-size: 1.1rem;
+  width: 6rem;
+  height: 2rem;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s, transform 300ms;
+}
+
+.input-name-btn:hover {
+  transform: scale(1.1);
+}

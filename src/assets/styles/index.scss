@@ -1,0 +1,27 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Layout */
+.layout-container {
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* wallpaper */
+body {
+  background-image: url('../img/wallpaper.jpeg');
+  background-position: center;
+  background-size: cover;
+}
+
+// Navbar Style Componenet
+@import './navBar/navBar.scss';
+
+// Details Style Component
+@import './details/details.scss';
+@import './details/name.scss';
