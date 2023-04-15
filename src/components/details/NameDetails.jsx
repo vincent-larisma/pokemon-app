@@ -14,7 +14,6 @@ export default function NameDetails({ setIsRegistered }) {
     if (name.length > 0) {
       useLocalStorage('set', 'name', name)
       setName('')
-      // setIsRegistered(true)
       setNextStep(true)
     }
   }

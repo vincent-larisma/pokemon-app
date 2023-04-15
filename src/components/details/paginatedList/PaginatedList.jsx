@@ -8,13 +8,16 @@ export default function PaginatedList() {
   const [pokemonData, setPokemonData] = useState([]) // result array only for the API
   const { selectedPokemons } = usePokemonDataContext()
 
+  // fetch API result
   useEffect(() => {
     useFetch(url).then((data) => setPokemonData(data.results))
   }, [])
 
   const [currentPage, setCurrentPage] = useState(1)
   const itemsPerPage = 20
-  const pageCount = Math.ceil(pokemonData.length / itemsPerPage)
+  const pageCount = Math.ceil(pokemonData.length / itemsPerPage) // max page
+
+  // Pagination item limit
 
   const getPaginatedData = useMemo(() => {
     const startIndex = (currentPage - 1) * itemsPerPage
@@ -23,8 +26,7 @@ export default function PaginatedList() {
     return pokemonData.slice(startIndex, endIndex)
   }, [currentPage])
 
-
-  
+  // Pagination button function
 
   const handleClickNext = () => {
     if (currentPage === pageCount) {
