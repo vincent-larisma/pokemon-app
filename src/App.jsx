@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import React from 'react'
 import NavBar from './components/NavBar'
 import Details from './components/details/Details'
+
+import { FetchPokemonDataProvider } from './utils/PokemonDataContext'
 
 function App() {
   return (
     <>
-      <div className='layout-container'>
-        <NavBar />
-        <Details />
-      </div>
+      <FetchPokemonDataProvider>
+        <div className='layout-container'>
+          <NavBar />
+          <Details />
+        </div>
+      </FetchPokemonDataProvider>
     </>
   )
 }

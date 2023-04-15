@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useMemo } from 'react'
 import Selectable from './Selectable'
 import { useFetch } from '../../../utils/useFetch'
+import { usePokemonDataContext } from '../../../utils/PokemonDataContext'
 
 export default function PaginatedList() {
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
   const [pokemonData, setPokemonData] = useState([]) // result array only for the API
-  const [selectedPokemon, setSelectedPokemon] = useState([])
+  const { selectedPokemons } = usePokemonDataContext()
 
   useEffect(() => {
     useFetch(url).then((data) => setPokemonData(data.results))
@@ -22,9 +23,8 @@ export default function PaginatedList() {
     return pokemonData.slice(startIndex, endIndex)
   }, [currentPage])
 
-  const handleSelect = (val) => {
-    setSelectedPokemon(val)
-  }
+
+  
 
   const handleClickNext = () => {
     if (currentPage === pageCount) {
@@ -54,12 +54,7 @@ export default function PaginatedList() {
             ? getPaginatedData.map((value, index) => {
                 return (
                   <div key={index}>
-                    <Selectable
-                      name={value.name}
-                      url={value.url}
-                      isSelected={(val) => setSelectedPokemon(val)}
-                      selectedPokemon={selectedPokemon}
-                    />
+                    <Selectable name={value.name} url={value.url} />
                   </div>
                 )
               })
@@ -71,9 +66,15 @@ export default function PaginatedList() {
           </div>
         </div>
       </div>
-      <div className='pagination-count'>
-        Page {currentPage} of {pageCount}
-      </div>
+      {selectedPokemons.list.length === 6 ? (
+        <div className='pagination-count'>
+          <button className='input-name-btn'>Done</button>
+        </div>
+      ) : (
+        <div className='pagination-count'>
+          Page {currentPage} of {pageCount}
+        </div>
+      )}
     </>
   )
 }
