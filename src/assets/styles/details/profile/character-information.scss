@@ -2,7 +2,7 @@
   @extend .details-container;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 30px;
@@ -39,14 +39,16 @@
   flex-direction: row;
   width: 55vw;
   height: 60vh;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin-top: 20px;
 
   .details-pokemon-list {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+
     width: 50vw;
     overflow-y: auto;
     gap: 50px;
