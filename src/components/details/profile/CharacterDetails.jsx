@@ -9,6 +9,10 @@ export default function CharacterDetails() {
   const name = useLocalStorage('get', 'name')
   const list = JSON.parse(useLocalStorage('get', 'userPokemonList')).selectedPokemonsList
 
+  const handleEdit = () => {
+    alert('The dev needs some coffee. Buy him some coffee!')
+  }
+
   return (
     <>
       <div className='details-container-layout'>
@@ -20,7 +24,7 @@ export default function CharacterDetails() {
         </div>
 
         <div className='details-pokemon-list-container'>
-          <div className='details-pokemon-list-edit'>
+          <div className='details-pokemon-list-edit' onClick={handleEdit}>
             <i class='fa-regular fa-pen-to-square fa-lg'></i>
           </div>
           <div className='details-pokemon-list'>
