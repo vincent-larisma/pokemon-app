@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react'
+import React, { useState, useEffect, useMemo, useCallback } from 'react'
 import Selectable from './Selectable'
 import { useFetch } from '../../../utils/useFetch'
 import { usePokemonDataContext } from '../../../utils/PokemonDataContext'
@@ -31,26 +31,26 @@ export default function PaginatedList({ setIsRegistered }) {
 
   // Pagination button function
 
-  const handleClickNext = () => {
+  const handleClickNext = useCallback(() => {
     if (currentPage === pageCount) {
       return
     }
     setCurrentPage(currentPage + 1)
-  }
+  }, [currentPage, pageCount])
 
-  const handleClickPrev = () => {
+  const handleClickPrev = useCallback(() => {
     if (currentPage === 1) {
       return
     }
     setCurrentPage(currentPage - 1)
-  }
+  }, [currentPage])
 
   // Will set the necessary details to local storage and go to path /profile
-  const handleClickDone = () => {
+  const handleClickDone = useCallback(() => {
     setIsRegistered(true)
     useLocalStorage('set', 'userPokemonList', selectedPokemons)
     alert('You have successfully selected your Pokemon!')
-  }
+  }, [selectedPokemons, setIsRegistered])
 
   return (
     <>

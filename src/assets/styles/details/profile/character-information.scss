@@ -36,21 +36,39 @@
 
 .details-pokemon-list-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   width: 55vw;
-  height: 60vh;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
+  gap: 20px;
+
+  .details-pokemon-list-edit {
+    align-self: flex-start;
+  }
 
   .details-pokemon-list {
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    width: 50vw;
+    width: 40vw;
+    height: 30vh;
     overflow-y: auto;
     gap: 50px;
+
+    .pokemon-container {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      width: 130px;
+      height: 200px;
+      align-items: center;
+      justify-content: center;
+      background-color: #e3bc9a;
+      border-radius: 10px;
+      border: 0.5px solid black;
+      cursor: pointer;
+    }
   }
 }

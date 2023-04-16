@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import avatar from '../../../assets/img/avatar.png'
 import TrainerDetails from './TrainerDetails'
 import PokemonList from './PokemonList'
@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../../utils/useLocalStorage'
 
 export default function CharacterDetails() {
   const name = useLocalStorage('get', 'name')
-  const list = useLocalStorage('get', 'userPokemonList').selectedPokemonsList || { name: '', img: '', type: '' }
+  const list = JSON.parse(useLocalStorage('get', 'userPokemonList')).selectedPokemonsList
 
   return (
     <>
@@ -18,13 +18,17 @@ export default function CharacterDetails() {
           </div>
           <TrainerDetails name={name} />
         </div>
+
         <div className='details-pokemon-list-container'>
+          <div className='details-pokemon-list-edit'>
+            <i class='fa-regular fa-pen-to-square fa-lg'></i>
+          </div>
           <div className='details-pokemon-list'>
             {list.length
-              ? list.map((value, index) => {
+              ? list.map((val, index) => {
                   return (
                     <div key={index}>
-                      <PokemonList />
+                      <PokemonList name={val.name} img={val.img} type={val.type} />
                     </div>
                   )
                 })
