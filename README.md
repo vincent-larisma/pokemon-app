@@ -13,10 +13,10 @@ This project is a Pokemon App that utilizes the Pokemon API from https://pokeapi
 
      > npm run dev
 
-4. Open the application in your web browser at what was given to you by vite.
+4. Open the application in your web browser at what was given to you in the terminal.
 
 ## Usage
-Once the project is running, go to http://localhost:3000/ in your web browser to access the Pokemon app.
+Once the project is running, go to (what was given to you in the terminal) in your web browser to access the Pokemon app.
 
 The app allows you to browse through a list of the original 151 Pokemon and select up to 6 to add to your team. You can navigate through the list using the pagination buttons and click on a Pokemon to select or deselect it. Once you have selected 6 Pokemon, the "Done" button will appear and you can click it to save your team and complete the app.
 
