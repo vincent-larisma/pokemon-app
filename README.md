@@ -7,11 +7,11 @@ This project is a Pokemon App that utilizes the Pokemon API from https://pokeapi
 1. Clone the repository to your local machine.
 2. Install the required dependencies by running the following command:
 
-npm i
+     > npm i
 
 3. Run the project using the following command: 
 
-npm run dev
+     > npm run dev
 
 4. Open the application in your web browser at what was given to you by vite.
 
