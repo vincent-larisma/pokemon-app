@@ -20,11 +20,11 @@
 }
 
 // name
-@import './name.scss';
+@import './name-input.scss';
 // avatar styles
-@import './avatar-icon.scss';
+@import './profile/avatar-icon.scss';
 // character information styles
-@import './character-information.scss';
+@import './profile/character-information.scss';
 
 // paginated list styles
 @import './paginatedList/';
