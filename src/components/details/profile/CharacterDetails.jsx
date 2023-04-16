@@ -10,7 +10,7 @@ export default function CharacterDetails() {
   const list = JSON.parse(useLocalStorage('get', 'userPokemonList')).selectedPokemonsList
 
   const handleEdit = () => {
-    alert('The dev needs some coffee. Buy him some coffee!')
+    alert('The dev needs some coffee. Buy him coffee!')
   }
 
   return (
