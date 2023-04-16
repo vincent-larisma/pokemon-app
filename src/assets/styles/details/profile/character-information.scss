@@ -45,6 +45,7 @@
 
   .details-pokemon-list-edit {
     align-self: flex-start;
+    cursor: pointer;
   }
 
   .details-pokemon-list {
@@ -68,7 +69,6 @@
       background-color: #e3bc9a;
       border-radius: 10px;
       border: 0.5px solid black;
-      cursor: pointer;
     }
   }
 }
