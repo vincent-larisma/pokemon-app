@@ -49,6 +49,7 @@ export default function PaginatedList({ setIsRegistered }) {
   const handleClickDone = () => {
     setIsRegistered(true)
     useLocalStorage('set', 'userPokemonList', selectedPokemons)
+    alert('You have successfully selected your Pokemon!')
   }
 
   return (

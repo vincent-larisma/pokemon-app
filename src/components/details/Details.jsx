@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 
 import NameDetails from './NameDetails'
 
-import CharacterDetails from './CharacterDetails'
+import CharacterDetails from './profile/CharacterDetails'
 import { useLocalStorage } from '../../utils/useLocalStorage'
 
 export default function Details() {
