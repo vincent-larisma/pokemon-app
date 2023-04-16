@@ -7,7 +7,7 @@ import { useLocalStorage } from '../../../utils/useLocalStorage'
 export default function PaginatedList({ setIsRegistered }) {
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=151'
   const [pokemonData, setPokemonData] = useState([]) // result array only for the API
-  const { selectedPokemons } = usePokemonDataContext()
+  const { selectedPokemons } = usePokemonDataContext() // for the local storage and also for the maximum number of pokemon selected
 
   // fetch API result
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function PaginatedList({ setIsRegistered }) {
     const endIndex = startIndex + itemsPerPage
 
     return pokemonData.slice(startIndex, endIndex)
-  }, [currentPage])
+  }, [currentPage, pokemonData])
 
   // Pagination button function
 

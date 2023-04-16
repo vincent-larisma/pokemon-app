@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import avatar from '../../../assets/img/avatar.png'
 import TrainerDetails from './TrainerDetails'
 import PokemonList from './PokemonList'

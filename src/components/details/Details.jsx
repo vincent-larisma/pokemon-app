@@ -11,6 +11,7 @@ export default function Details() {
   const navigate = useNavigate()
   const [isRegistered, setIsRegistered] = useState(useLocalStorage('get', 'userPokemonList'))
 
+  //checks to see if the user has already registered before and redirects them to specified location
   useEffect(() => {
     if (isRegistered) {
       navigate('/profile')

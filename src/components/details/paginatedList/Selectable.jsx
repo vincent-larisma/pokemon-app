@@ -11,10 +11,12 @@ export default function Selectable({ name, url }) {
 
   const { type, img } = currentPokemon
 
+  //go to each url and set the currentPokemon details
   useEffect(() => {
     useFetch(url).then((data) => setCurrentPokemon({ type: data.types[0].type.name, img: data.sprites.front_default }))
   }, [url])
 
+  // handles the logic of checkbox
   const handleSelect = () => {
     if (list.includes(name)) {
       list.splice(list.indexOf(name), 1)
